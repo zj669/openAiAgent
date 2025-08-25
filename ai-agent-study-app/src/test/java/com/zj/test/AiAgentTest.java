@@ -114,7 +114,7 @@ public class AiAgentTest {
                     AssistantMessage output = chatResponse.getResult().getOutput();
                     log.info("测试结果: {}", JSON.toJSONString(output));
                 },
-                Throwable::printStackTrace,
+                Throwable-> log.error("测试结果: {}", Throwable),
                 () -> {
                     countDownLatch.countDown();
                     System.out.println("Stream completed");

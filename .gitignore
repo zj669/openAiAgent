@@ -36,4 +36,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/**/package-info.java
+/ai-app/*.log
+/ai-app/*.gz
+/*.log
+/mcp-servers-csdn.log
+/ai-agent-study-app/data/
