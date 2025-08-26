@@ -44,7 +44,7 @@ public class OpenAiTest {
     @Value("classpath:data/article-prompt-words.txt")
     private Resource articlePromptWordsResource;
 
-    @jakarta.annotation.Resource(name = "deepseekOpenAi")
+    @jakarta.annotation.Resource(name = "qwenOpenAi")
     private OpenAiChatModel openAiChatModel;
 
     @Autowired
@@ -55,12 +55,12 @@ public class OpenAiTest {
     @Test
     public void test_call() {
         ChatResponse response = openAiChatModel.call(new Prompt(
-                "1+1"));
-        log.info("测试结果(call):{}", JSON.toJSONString(response));
+                "你是谁"));
+        log.info("测试结果(call):{}", response.getResult().getOutput().getText());
     }
 
     @Test
-    public void test_call_images() {
+    public void test_call_images() throws InterruptedException {
         UserMessage userMessage = UserMessage.builder()
                 .text("请描述这张图片的主要内容，并说明图中物品的可能用途。")
                 .media(org.springframework.ai.content.Media.builder()
@@ -68,12 +68,21 @@ public class OpenAiTest {
                         .data(imageResource)
                         .build())
                 .build();
+        Prompt prompt = new Prompt(userMessage);
+        Flux<ChatResponse> response = openAiChatModel.stream(prompt);
 
-        ChatResponse response = openAiChatModel.call(new Prompt(
-                userMessage));
+        CountDownLatch latch = new CountDownLatch(1);
 
-        log.info("测试结果(images):{}", JSON.toJSONString(response));
-        log.info("测试结果(images):{}", response.getResult().getOutput().getText());
+        response.subscribe(
+                s -> log.info("测试结果(images):{}", s.getResult().getOutput().getText()),
+                throwable -> {
+                    log.error("测试过程中发生错误", throwable);
+                    latch.countDown();
+                },
+                latch::countDown
+        );
+
+        latch.await(); // 等待异步操作完成
     }
 
     @Test
