@@ -65,6 +65,23 @@ public class OpenApiModelClientConfig {
                 .build();
         return openAiChatModel;
     }
+
+    @Bean("qwenOpenAi")
+    public OpenAiChatModel qwenChatModel(WebClient.Builder webClientBuilder) {
+        System.out.println("开始初始化model，webClientBuilder是" + webClientBuilder.toString());
+        OpenAiApi openAiApi = OpenAiApi.builder()
+                .baseUrl("https://dashscope.aliyuncs.com/compatible-mode")
+                .apiKey("sk-e252447ed1854b839953651c3b66724c")
+                .webClientBuilder( webClientBuilder)
+                .build();
+        OpenAiChatModel openAiChatModel = OpenAiChatModel.builder()
+                .openAiApi(openAiApi)
+                .defaultOptions(OpenAiChatOptions.builder()
+                        .model("qvq-max")
+                        .build())
+                .build();
+        return openAiChatModel;
+    }
     @Bean("deepseekChatClientBuilder")
     public ChatClient.Builder deepseekChatClientBuilder(@Qualifier("deepseekOpenAi") OpenAiChatModel deepseekChatModel) {
 
