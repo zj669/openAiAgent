@@ -5,11 +5,13 @@ import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory.Dyna
 import com.zj.domain.agent.service.armory.strategy.ILoadDataStrategy;
 import com.zj.types.common.design.tree.handler.StrategyHandler;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 @Component
+@Slf4j
 public class RootNode extends AgentAromorSupport{
     @Resource
     private ApiNode apiNode;
@@ -30,7 +32,11 @@ public class RootNode extends AgentAromorSupport{
     protected void multiThread(ArmoryCommandEntity requestParams, DynamicContext context) {
         // 策略加载数据
         String commandType = requestParams.getCommandType();
+        log.info("开始加载数据 commandType{}", commandType);
         ILoadDataStrategy loadDataStrategy = loadDataStrategyMap.get(commandType);
+        if (loadDataStrategy == null) {
+            log.error("未找到对应的策略");
+        }
         loadDataStrategy.loadData(requestParams, context);
     }
 }

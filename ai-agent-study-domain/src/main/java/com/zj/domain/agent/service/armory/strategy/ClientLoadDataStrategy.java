@@ -6,11 +6,12 @@ import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory.Dyna
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
 
-@Component("client")
+@Service("aiClientLoadDataStrategy")
 @Slf4j
 public class ClientLoadDataStrategy implements ILoadDataStrategy{
     @Resource

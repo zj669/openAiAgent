@@ -1,7 +1,13 @@
 package com.zj.test;
 
+import com.alibaba.fastjson2.JSON;
+import com.zj.domain.agent.model.entity.ArmoryCommandEntity;
+import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory;
+import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory.DynamicContext;
 import com.zj.infrastructure.dao.IAiClientToolMcpDao;
 import com.zj.infrastructure.dao.po.AiClientToolMcp;
+import com.zj.types.common.design.tree.handler.StrategyHandler;
+import com.zj.types.enums.AiAgentEnumVO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -10,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -17,22 +24,18 @@ import java.time.LocalDateTime;
 public class ApiTest {
     @Resource
     private IAiClientToolMcpDao aiClientToolMcpDao;
+    @Resource
+    private DefaultAgentArmoryFactory defaultAgentArmoryFactory;
 
     @Test
     public void test() {
-        AiClientToolMcp aiClientToolMcp = AiClientToolMcp.builder()
-                .mcpId("test_001")
-                .mcpName("更新后的测试MCP工具")
-                .transportType("stdio")
-                .transportConfig("{\"command\":\"npx\",\"args\":[\"-y\",\"test-mcp\"]}")
-                .requestTimeout(300)
-                .status(1)
-                .updateTime(LocalDateTime.now())
-                .build();
-
-        int result = aiClientToolMcpDao.insert(aiClientToolMcp);
-        log.info("更新结果: {}", result);
-        log.info("测试完成");
+        StrategyHandler<ArmoryCommandEntity, DynamicContext, String> armoryCommandEntityDynamicContextStringStrategyHandler = defaultAgentArmoryFactory.strategyHandler();
+        ArmoryCommandEntity armoryCommandEntity = new ArmoryCommandEntity();
+        armoryCommandEntity.setCommandType(AiAgentEnumVO.AI_CLIENT.getLoadDataStrategy());
+        armoryCommandEntity.setCommandIdList(Arrays.asList("3001"));
+        DynamicContext dynamicContext = new DynamicContext();
+        String apply = armoryCommandEntityDynamicContextStringStrategyHandler.apply(armoryCommandEntity, dynamicContext);
+        System.out.println(JSON.toJSONString(dynamicContext));
     }
 
 }
