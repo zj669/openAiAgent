@@ -4,11 +4,7 @@ import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zj.domain.agent.adpater.repository.IAgentRepository;
-import com.zj.domain.agent.model.vo.AiClientAdvisorVO;
-import com.zj.domain.agent.model.vo.AiClientApiVO;
-import com.zj.domain.agent.model.vo.AiClientModelVO;
-import com.zj.domain.agent.model.vo.AiClientSystemPromptVO;
-import com.zj.domain.agent.model.vo.AiClientToolMcpVO;
+import com.zj.domain.agent.model.vo.*;
 import com.zj.domain.agent.model.vo.AiClientToolMcpVO.TransportConfigStdio.Stdio;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory.DynamicContext;
 import com.zj.infrastructure.dao.IAiAgentDao;
@@ -22,22 +18,13 @@ import com.zj.infrastructure.dao.IAiClientModelDao;
 import com.zj.infrastructure.dao.IAiClientRagOrderDao;
 import com.zj.infrastructure.dao.IAiClientSystemPromptDao;
 import com.zj.infrastructure.dao.IAiClientToolMcpDao;
-import com.zj.infrastructure.dao.po.AiClientAdvisor;
-import com.zj.infrastructure.dao.po.AiClientApi;
-import com.zj.infrastructure.dao.po.AiClientConfig;
-import com.zj.infrastructure.dao.po.AiClientModel;
-import com.zj.infrastructure.dao.po.AiClientSystemPrompt;
-import com.zj.infrastructure.dao.po.AiClientToolMcp;
+import com.zj.infrastructure.dao.po.*;
 import com.zj.types.enums.AiAgentEnumVO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Slf4j
 @Repository
@@ -315,7 +302,7 @@ public class AgentRepository implements IAgentRepository {
             return ;
         }
 
-        List<AiClientSystemPromptVO> result = new ArrayList<>();
+        Map<String, AiClientSystemPromptVO> result = new HashMap<>();
         Set<String> processedPromptIds = new HashSet<>();
 
         for (String clientId : commandIdList) {
@@ -343,11 +330,78 @@ public class AgentRepository implements IAgentRepository {
                                 .description(systemPrompt.getDescription())
                                 .build();
 
-                        result.add(promptVO);
+                        result.put(systemPrompt.getPromptId() ,promptVO);
                     }
                 }
             }
         }
         context.setValue(AiAgentEnumVO.AI_CLIENT_SYSTEM_PROMPT.getDataName(), result);
+    }
+
+    @Override
+    public void queryAiClientVOByClientIds(List<String> commandIdList, DynamicContext context) {
+        if (commandIdList == null || commandIdList.isEmpty()) {
+            return;
+        }
+
+        List<AiClientVO> result = new ArrayList<>();
+        Set<String> processedClientIds = new HashSet<>();
+
+        for (String clientId : commandIdList) {
+            if (processedClientIds.contains(clientId)) {
+                continue;
+            }
+            processedClientIds.add(clientId);
+
+            // 1. 查询客户端基本信息
+            AiClient aiClient = aiClientDao.queryByClientId(clientId);
+            if (aiClient == null || aiClient.getStatus() != 1) {
+                continue;
+            }
+
+            // 2. 查询客户端相关配置
+            List<AiClientConfig> configs = aiClientConfigDao.queryBySourceTypeAndId("client", clientId);
+
+            String modelId = null;
+            List<String> promptIdList = new ArrayList<>();
+            List<String> mcpIdList = new ArrayList<>();
+            List<String> advisorIdList = new ArrayList<>();
+
+            for (AiClientConfig config : configs) {
+                if (config.getStatus() != 1) {
+                    continue;
+                }
+
+                switch (config.getTargetType()) {
+                    case "model":
+                        modelId = config.getTargetId();
+                        break;
+                    case "prompt":
+                        promptIdList.add(config.getTargetId());
+                        break;
+                    case "tool_mcp":
+                        mcpIdList.add(config.getTargetId());
+                        break;
+                    case "advisor":
+                        advisorIdList.add(config.getTargetId());
+                        break;
+                }
+            }
+
+            // 3. 构建AiClientVO对象
+            AiClientVO aiClientVO = AiClientVO.builder()
+                    .clientId(aiClient.getClientId())
+                    .clientName(aiClient.getClientName())
+                    .description(aiClient.getDescription())
+                    .modelId(modelId)
+                    .promptIdList(promptIdList)
+                    .mcpIdList(mcpIdList)
+                    .advisorIdList(advisorIdList)
+                    .build();
+
+            result.add(aiClientVO);
+        }
+        context.setValue(AiAgentEnumVO.AI_CLIENT.getDataName(), result);
+
     }
 }

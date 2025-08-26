@@ -2,6 +2,7 @@ package com.zj.test;
 
 import com.alibaba.fastjson2.JSON;
 import com.zj.domain.agent.model.entity.ArmoryCommandEntity;
+import com.zj.domain.agent.model.vo.AiClientApiVO;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory.DynamicContext;
 import com.zj.infrastructure.dao.IAiClientToolMcpDao;
@@ -13,10 +14,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -26,6 +29,8 @@ public class ApiTest {
     private IAiClientToolMcpDao aiClientToolMcpDao;
     @Resource
     private DefaultAgentArmoryFactory defaultAgentArmoryFactory;
+    @Resource
+    protected ApplicationContext applicationContext;
 
     @Test
     public void test() {
@@ -36,6 +41,9 @@ public class ApiTest {
         DynamicContext dynamicContext = new DynamicContext();
         String apply = armoryCommandEntityDynamicContextStringStrategyHandler.apply(armoryCommandEntity, dynamicContext);
         System.out.println(JSON.toJSONString(dynamicContext));
+        List<AiClientApiVO> value = dynamicContext.getValue(AiAgentEnumVO.AI_CLIENT_API.getDataName());
+        Object bean = applicationContext.getBean(AiAgentEnumVO.AI_CLIENT_API.getBeanName(value.get(0).getApiId()));
+        System.out.println(JSON.toJSONString( bean));
     }
 
 }

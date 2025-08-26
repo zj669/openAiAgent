@@ -16,4 +16,6 @@ public interface IAgentRepository {
     void queryAdvisorByClientIdS(List<String> commandIdList, DynamicContext context);
 
     void queryPromptByClientIdS(List<String> commandIdList, DynamicContext context);
+
+    void queryAiClientVOByClientIds(List<String> commandIdList, DynamicContext context);
 }

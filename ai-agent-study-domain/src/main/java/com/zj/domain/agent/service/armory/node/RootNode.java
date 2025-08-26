@@ -39,4 +39,14 @@ public class RootNode extends AgentAromorSupport{
         }
         loadDataStrategy.loadData(requestParams, context);
     }
+
+    @Override
+    protected String beanName(String beanId) {
+        return "";
+    }
+
+    @Override
+    protected String dataName() {
+        return "";
+    }
 }

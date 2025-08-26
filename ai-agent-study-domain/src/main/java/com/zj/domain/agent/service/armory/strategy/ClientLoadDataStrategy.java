@@ -42,7 +42,12 @@ public class ClientLoadDataStrategy implements ILoadDataStrategy{
             agentRepository.queryPromptByClientIdS(requestParams.getCommandIdList(), context);
         }, threadPoolExecutor);
 
-        CompletableFuture<Void> future = CompletableFuture.allOf(futureApi, futureModel, futureMcp, futureAdvisor, futurePrompt);
+        CompletableFuture<Void> futureClient = CompletableFuture.runAsync(() -> {
+            agentRepository.queryAiClientVOByClientIds(requestParams.getCommandIdList(), context);
+        }, threadPoolExecutor);
+
+
+        CompletableFuture<Void> future = CompletableFuture.allOf(futureApi, futureModel, futureMcp, futureAdvisor, futurePrompt, futureClient);
         future.join();
         log.info("结束异步加载数据");
     }
