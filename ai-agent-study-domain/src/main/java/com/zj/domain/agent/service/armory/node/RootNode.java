@@ -2,6 +2,7 @@ package com.zj.domain.agent.service.armory.node;
 
 import com.zj.domain.agent.model.entity.ArmoryCommandEntity;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory.DynamicContext;
+import com.zj.domain.agent.service.armory.model.AgentArmoryVO;
 import com.zj.domain.agent.service.armory.strategy.ILoadDataStrategy;
 import com.zj.types.common.design.tree.handler.StrategyHandler;
 import jakarta.annotation.Resource;
@@ -19,12 +20,12 @@ public class RootNode extends AgentAromorSupport{
     private Map<String, ILoadDataStrategy> loadDataStrategyMap;
 
     @Override
-    protected String doApply(ArmoryCommandEntity requestParams, DynamicContext context) {
+    protected AgentArmoryVO doApply(ArmoryCommandEntity requestParams, DynamicContext context) {
         return route(requestParams, context);
     }
 
     @Override
-    public StrategyHandler<ArmoryCommandEntity, DynamicContext, String> getStrategyHandler(ArmoryCommandEntity requestParams, DynamicContext context) {
+    public StrategyHandler<ArmoryCommandEntity, DynamicContext, AgentArmoryVO> getStrategyHandler(ArmoryCommandEntity requestParams, DynamicContext context) {
         return apiNode;
     }
 

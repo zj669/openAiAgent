@@ -65,6 +65,23 @@ public class OpenApiModelClientConfig {
                 .build();
         return openAiChatModel;
     }
+    @Bean("glmOpenAi")
+    public OpenAiChatModel glmChatModel(WebClient.Builder webClientBuilder) {
+        System.out.println("开始初始化model，webClientBuilder是" + webClientBuilder.toString());
+        OpenAiApi openAiApi = OpenAiApi.builder()
+                .baseUrl("https://open.bigmodel.cn/api/paas/")
+                .completionsPath("v4/chat/completions")
+                .apiKey("d2596bca5e02485daac3eb8616401046.VZvUetLSzQdrDu1Q")
+                .webClientBuilder( webClientBuilder)
+                .build();
+        OpenAiChatModel openAiChatModel = OpenAiChatModel.builder()
+                .openAiApi(openAiApi)
+                .defaultOptions(OpenAiChatOptions.builder()
+                        .model("glm-4.5")
+                        .build())
+                .build();
+        return openAiChatModel;
+    }
 
     @Bean("qwenOpenAi")
     public OpenAiChatModel qwenChatModel(WebClient.Builder webClientBuilder) {
@@ -97,5 +114,8 @@ public class OpenApiModelClientConfig {
     public ChatClient.Builder geminiChatClientBuilder(@Qualifier("geminiOpenAi") OpenAiChatModel claudeChatModel) {
         return new DefaultChatClientBuilder(claudeChatModel, ObservationRegistry.NOOP, (ChatClientObservationConvention) null);
     }
-
+    @Bean("glmChatClientBuilder")
+    public ChatClient.Builder glmChatClientBuilder(@Qualifier("glmOpenAi") OpenAiChatModel claudeChatModel) {
+        return new DefaultChatClientBuilder(claudeChatModel, ObservationRegistry.NOOP, (ChatClientObservationConvention) null);
+    }
 }

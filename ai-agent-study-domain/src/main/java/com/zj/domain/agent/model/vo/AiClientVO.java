@@ -1,6 +1,5 @@
 package com.zj.domain.agent.model.vo;
 
-
 import com.zj.types.enums.AiAgentEnumVO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -76,5 +75,4 @@ public class AiClientVO {
         }
         return advisorBeanNameList;
     }
-
 }

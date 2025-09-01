@@ -2,6 +2,7 @@ package com.zj.domain.agent.service.armory.factory;
 
 
 import com.zj.domain.agent.model.entity.ArmoryCommandEntity;
+import com.zj.domain.agent.service.armory.model.AgentArmoryVO;
 import com.zj.domain.agent.service.armory.node.RootNode;
 import com.zj.types.common.design.tree.handler.StrategyHandler;
 import lombok.AllArgsConstructor;
@@ -21,7 +22,7 @@ public class DefaultAgentArmoryFactory {
         this.rootNode = rootNode;
     }
 
-    public StrategyHandler<ArmoryCommandEntity, DynamicContext, String> strategyHandler() {
+    public StrategyHandler<ArmoryCommandEntity, DynamicContext, AgentArmoryVO> strategyHandler() {
         return rootNode;
     }
 

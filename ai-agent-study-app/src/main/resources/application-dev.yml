@@ -50,6 +50,7 @@ spring:
     openai:
       base-url: https://globalai.vip
       api-key: sk-igZGYZBslPs4UxqU1r8BuprgCFzD388sk36Mwnp95jxsfgKp
+
     ollama:
       base-url: http://117.72.152.117:11434
       embedding:

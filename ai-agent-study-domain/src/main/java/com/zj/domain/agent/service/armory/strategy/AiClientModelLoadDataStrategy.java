@@ -5,13 +5,13 @@ import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory.Dyna
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-@Slf4j
-@Service("aiClientModelLoadDataStrategy")
-public class AiClientModelLoadDataStrategy implements ILoadDataStrategy {
-
-
-    @Override
-    public void loadData(ArmoryCommandEntity requestParams, DynamicContext context) {
-
-    }
-}
+//@Slf4j
+//@Service("aiClientModelLoadDataStrategy")
+//public class AiClientModelLoadDataStrategy implements ILoadDataStrategy {
+//
+//
+//    @Override
+//    public void loadData(ArmoryCommandEntity requestParams, DynamicContext context) {
+//
+//    }
+//}

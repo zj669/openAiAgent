@@ -1,22 +1,54 @@
 package com.zj.config;
+import io.netty.handler.timeout.ReadTimeoutHandler;
+import io.netty.handler.timeout.WriteTimeoutHandler;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.client.reactive.ClientHttpConnector;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
+import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
+import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClient;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 import io.netty.channel.ChannelOption;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.stereotype.Component;
 
 @Component
 public class WebClientConfig {
-    @Bean
+    @Bean("webClientBuilder1")
+    @Primary
     public WebClient.Builder webClientBuilder() {
         HttpClient httpClient = HttpClient.create()
                 .responseTimeout(Duration.ofMinutes(5))  // 设置响应超时时间为5秒
-                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 60000);  // 设置连接超时时间为3秒
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 60000)
+                .doOnConnected(conn -> {
+                            conn.addHandlerLast(new ReadTimeoutHandler(600, TimeUnit.SECONDS)); // 读超时 10 秒
+                            conn.addHandlerLast(new WriteTimeoutHandler(600, TimeUnit.SECONDS));// 读超时 10 秒
+                        }
+                )
+                .wiretap(true);
+        ;  // 设置连接超时时间为3秒
 
-        ClientHttpConnector connector = new ReactorClientHttpConnector(httpClient);
-        return WebClient.builder().clientConnector(connector);
+        return WebClient.builder()
+                .clientConnector(new ReactorClientHttpConnector(httpClient))
+                .filter(logRequest())
+                .filter(logResponse());
+    }
+
+
+    private ExchangeFilterFunction logRequest() {
+        return ExchangeFilterFunction.ofRequestProcessor(clientRequest -> {
+            System.out.println("Request: " + clientRequest.method() + " " + clientRequest.url());
+            return Mono.just(clientRequest);
+        });
+    }
+
+    private ExchangeFilterFunction logResponse() {
+        return ExchangeFilterFunction.ofResponseProcessor(clientResponse -> {
+            System.out.println("Response status: " + clientResponse.statusCode());
+            return Mono.just(clientResponse);
+        });
     }
 }

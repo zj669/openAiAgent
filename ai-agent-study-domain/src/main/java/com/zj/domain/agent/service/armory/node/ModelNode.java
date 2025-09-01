@@ -4,6 +4,7 @@ import com.zj.domain.agent.model.entity.ArmoryCommandEntity;
 import com.zj.domain.agent.model.vo.AiClientApiVO;
 import com.zj.domain.agent.model.vo.AiClientModelVO;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory;
+import com.zj.domain.agent.service.armory.model.AgentArmoryVO;
 import com.zj.types.common.design.tree.handler.StrategyHandler;
 import com.zj.types.enums.AiAgentEnumVO;
 import jakarta.annotation.Resource;
@@ -31,7 +32,7 @@ public class ModelNode extends  AgentAromorSupport{
     }
 
     @Override
-    protected String doApply(ArmoryCommandEntity requestParams, DefaultAgentArmoryFactory.DynamicContext context) {
+    protected AgentArmoryVO doApply(ArmoryCommandEntity requestParams, DefaultAgentArmoryFactory.DynamicContext context) {
         log.info("Ai Agent 构建节点，客户端,ModelNode");
         List<AiClientModelVO> value = context.getValue(dataName());
         for (AiClientModelVO model : value) {
@@ -48,7 +49,7 @@ public class ModelNode extends  AgentAromorSupport{
     }
 
     @Override
-    public StrategyHandler<ArmoryCommandEntity, DefaultAgentArmoryFactory.DynamicContext, String> getStrategyHandler(ArmoryCommandEntity requestParams, DefaultAgentArmoryFactory.DynamicContext context) {
+    public StrategyHandler<ArmoryCommandEntity, DefaultAgentArmoryFactory.DynamicContext, AgentArmoryVO> getStrategyHandler(ArmoryCommandEntity requestParams, DefaultAgentArmoryFactory.DynamicContext context) {
         return mcpNode;
     }
 }

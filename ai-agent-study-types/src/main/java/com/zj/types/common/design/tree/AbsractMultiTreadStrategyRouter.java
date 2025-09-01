@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 public abstract class AbsractMultiTreadStrategyRouter<T, D, R>  implements StrategyMapper<T, D, R>, StrategyHandler<T, D, R> {
-    private DefaultStrategyHandler<T, D, R> defaultStrategyHandler;
+    protected DefaultStrategyHandler<T, D, R> defaultStrategyHandler;
     public  R route(T t, D d){
         StrategyHandler<T, D, R> strategyHandler = getStrategyHandler(t, d);
         if(strategyHandler != null){

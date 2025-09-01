@@ -1,11 +1,10 @@
 package com.zj.domain.agent.service.armory.node;
 
-import com.alibaba.fastjson2.JSON;
 import com.zj.domain.agent.model.entity.ArmoryCommandEntity;
-import com.zj.domain.agent.model.vo.AiClientModelVO;
 import com.zj.domain.agent.model.vo.AiClientSystemPromptVO;
 import com.zj.domain.agent.model.vo.AiClientVO;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory;
+import com.zj.domain.agent.service.armory.model.AgentArmoryVO;
 import com.zj.types.common.design.tree.handler.StrategyHandler;
 import com.zj.types.enums.AiAgentEnumVO;
 import io.modelcontextprotocol.client.McpSyncClient;
@@ -15,7 +14,6 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.api.Advisor;
 import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
 import org.springframework.ai.openai.OpenAiChatModel;
-import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -39,7 +37,7 @@ public class ClientNode extends AgentAromorSupport {
     }
 
     @Override
-    protected String doApply(ArmoryCommandEntity requestParams, DefaultAgentArmoryFactory.DynamicContext context) {
+    protected AgentArmoryVO doApply(ArmoryCommandEntity requestParams, DefaultAgentArmoryFactory.DynamicContext context) {
         log.info("Ai Agent 构建节点，客户端ClientNode");
 
         List<AiClientVO> aiClientList = context.getValue(dataName());
@@ -92,7 +90,7 @@ public class ClientNode extends AgentAromorSupport {
     }
 
     @Override
-    public StrategyHandler<ArmoryCommandEntity, DefaultAgentArmoryFactory.DynamicContext, String> getStrategyHandler(ArmoryCommandEntity requestParams, DefaultAgentArmoryFactory.DynamicContext context) {
+    public StrategyHandler<ArmoryCommandEntity, DefaultAgentArmoryFactory.DynamicContext, AgentArmoryVO> getStrategyHandler(ArmoryCommandEntity requestParams, DefaultAgentArmoryFactory.DynamicContext context) {
         return endNode;
     }
 }
