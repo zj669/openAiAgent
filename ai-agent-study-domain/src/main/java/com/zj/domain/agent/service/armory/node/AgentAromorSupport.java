@@ -5,16 +5,10 @@ import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory.DynamicContext;
 import com.zj.domain.agent.service.armory.model.AgentArmoryVO;
 import com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter;
-import com.zj.types.common.design.tree.handler.StrategyHandler;
-import com.zj.types.enums.AiAgentEnumVO;
 import com.zj.types.utills.SpringContextUtil;
 import jakarta.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component

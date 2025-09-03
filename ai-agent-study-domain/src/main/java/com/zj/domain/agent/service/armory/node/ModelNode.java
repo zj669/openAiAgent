@@ -1,7 +1,6 @@
 package com.zj.domain.agent.service.armory.node;
 
 import com.zj.domain.agent.model.entity.ArmoryCommandEntity;
-import com.zj.domain.agent.model.vo.AiClientApiVO;
 import com.zj.domain.agent.model.vo.AiClientModelVO;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory;
 import com.zj.domain.agent.service.armory.model.AgentArmoryVO;
@@ -11,7 +10,6 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.ai.openai.OpenAiChatOptions;
-import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

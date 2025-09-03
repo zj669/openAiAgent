@@ -12,29 +12,17 @@ import com.zj.domain.agent.service.execute.auto.factory.DefaultAutoAgentExecuteS
 import com.zj.domain.agent.service.execute.model.ModelExecuteStrategy;
 import com.zj.infrastructure.dao.IAiClientApiDao;
 import com.zj.infrastructure.dao.IAiClientToolMcpDao;
-import com.zj.infrastructure.dao.po.AiClientApi;
-import com.zj.infrastructure.dao.po.AiClientToolMcp;
 import com.zj.types.common.design.tree.handler.StrategyHandler;
 import com.zj.types.enums.AiAgentEnumVO;
-import io.modelcontextprotocol.client.McpSyncClient;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.messages.UserMessage;
-import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
-import org.springframework.ai.openai.OpenAiChatModel;
-import org.springframework.ai.openai.OpenAiChatOptions;
-import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
-
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
