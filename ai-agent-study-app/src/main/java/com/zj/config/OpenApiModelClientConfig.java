@@ -59,6 +59,7 @@ public class OpenApiModelClientConfig {
                 .build();
         OpenAiChatModel openAiChatModel = OpenAiChatModel.builder()
                 .openAiApi(openAiApi)
+                .openAiApi(openAiApi)
                 .defaultOptions(OpenAiChatOptions.builder()
                         .model("gemini-2.5-flash-lite-preview-06-17")
                         .build())
