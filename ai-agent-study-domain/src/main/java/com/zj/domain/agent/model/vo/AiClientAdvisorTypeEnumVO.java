@@ -1,7 +1,7 @@
 package com.zj.domain.agent.model.vo;
 
 
-import com.zj.domain.agent.model.entity.RagAnswerAdvisor;
+import com.zj.domain.agent.model.rag.RagAnswerAdvisor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

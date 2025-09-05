@@ -1,6 +1,5 @@
-package com.zj.config;
+package com.zj.domain.agent.model.rag.split;
 
-import org.apache.el.stream.Stream;
 import org.springframework.ai.transformer.splitter.TextSplitter;
 
 import java.util.Arrays;

@@ -1,17 +1,678 @@
-25-08-25.22:38:30.603 [main            ] INFO  Application            - Starting Application using Java 17.0.12 with PID 18672 (D:\java\openAiAgent\ai-agent-study-app\target\classes started by 32183 in D:\java\openAiAgent)
-25-08-25.22:38:30.604 [main            ] INFO  Application            - The following 1 profile is active: "dev"
-25-08-25.22:38:32.052 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
-25-08-25.22:38:32.069 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
-25-08-25.22:38:32.071 [main            ] INFO  StandardService        - Starting service [Tomcat]
-25-08-25.22:38:32.071 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
-25-08-25.22:38:32.196 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
-25-08-25.22:38:32.196 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1555 ms
-25-08-25.22:38:32.728 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
-25-08-25.22:38:32.734 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
-25-08-25.22:38:32.734 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
-25-08-25.22:38:32.918 [main            ] INFO  OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-25-08-25.22:38:33.635 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
-25-08-25.22:38:33.657 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
-25-08-25.22:38:33.667 [main            ] INFO  Application            - Started Application in 3.65 seconds (process running for 4.505)
-25-08-25.22:45:24.846 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
-25-08-25.22:45:26.185 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:35:55.789 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+25-09-05.16:35:55.826 [main            ] INFO  Application            - Starting Application using Java 17.0.15 with PID 19764 (D:\JavaProgram\ai-agent-study\ai-agent-study-app\target\classes started by JieZhou in D:\JavaProgram\ai-agent-study)
+25-09-05.16:35:55.826 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-09-05.16:35:56.913 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
+25-09-05.16:35:56.922 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
+25-09-05.16:35:56.923 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-09-05.16:35:56.923 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
+25-09-05.16:35:56.976 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-09-05.16:35:56.976 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1122 ms
+25-09-05.16:35:57.398 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
+25-09-05.16:35:57.401 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
+25-09-05.16:35:57.402 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
+25-09-05.16:35:58.196 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
+25-09-05.16:35:58.206 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
+25-09-05.16:35:58.212 [main            ] INFO  Application            - Started Application in 2.816 seconds (process running for 3.315)
+25-09-05.16:37:39.239 [http-nio-8091-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-09-05.16:37:39.239 [http-nio-8091-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-09-05.16:37:39.241 [http-nio-8091-exec-1] INFO  DispatcherServlet      - Completed initialization in 2 ms
+25-09-05.16:37:39.389 [http-nio-8091-exec-1] INFO  AiAgentControlle       - AutoAgent流式执行请求开始，请求信息：{"aiAgentId":"3001","maxStep":1,"message":"大象放冰箱要几步","sessionId":"1"}
+25-09-05.16:37:39.392 [pool-2-thread-1 ] INFO  RootNode               - === 动态多轮执行测试开始 ====
+25-09-05.16:37:39.392 [pool-2-thread-1 ] INFO  RootNode               - 用户输入: 大象放冰箱要几步
+25-09-05.16:37:39.392 [pool-2-thread-1 ] INFO  RootNode               - 最大执行步数: 1
+25-09-05.16:37:39.392 [pool-2-thread-1 ] INFO  RootNode               - 会话ID: 1
+25-09-05.16:37:39.404 [pool-2-thread-1 ] INFO  HikariDataSource       - MainHikariPool - Starting...
+25-09-05.16:37:39.899 [pool-2-thread-1 ] INFO  HikariPool             - MainHikariPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@7025affa
+25-09-05.16:37:39.900 [pool-2-thread-1 ] INFO  HikariDataSource       - MainHikariPool - Start completed.
+25-09-05.16:37:39.981 [pool-2-thread-1 ] INFO  Step1AnalyzerNode      - 
+🎯 === 执行第 1 步 ===
+25-09-05.16:37:39.982 [pool-2-thread-1 ] INFO  Step1AnalyzerNode      - 
+📊 阶段1: 任务状态分析
+25-09-05.16:37:39.983 [pool-2-thread-1 ] ERROR AiAgentControlle       - AutoAgent执行异常：Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+java.lang.NullPointerException: Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:33)
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:20)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.route(AbsractMultiTreadStrategyRouter.java:14)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:46)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:21)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.domain.agent.service.execute.auto.AutoAgentExecuteStrategy.execute(AutoAgentExecuteStrategy.java:40)
+	at com.zj.trigger.http.AiAgentControlle.lambda$autoAgent$0(AiAgentControlle.java:63)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+25-09-05.16:38:02.993 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
+25-09-05.16:38:03.197 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:38:03.212 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown initiated...
+25-09-05.16:38:03.217 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown completed.
+25-09-05.16:38:06.190 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+25-09-05.16:38:06.221 [main            ] INFO  Application            - Starting Application using Java 17.0.15 with PID 25028 (D:\JavaProgram\ai-agent-study\ai-agent-study-app\target\classes started by JieZhou in D:\JavaProgram\ai-agent-study)
+25-09-05.16:38:06.222 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-09-05.16:38:07.294 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
+25-09-05.16:38:07.310 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
+25-09-05.16:38:07.312 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-09-05.16:38:07.313 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
+25-09-05.16:38:07.383 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-09-05.16:38:07.383 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1129 ms
+25-09-05.16:38:07.952 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
+25-09-05.16:38:07.957 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
+25-09-05.16:38:07.957 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
+25-09-05.16:38:08.814 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
+25-09-05.16:38:08.825 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
+25-09-05.16:38:08.831 [main            ] INFO  Application            - Started Application in 2.988 seconds (process running for 3.425)
+25-09-05.16:38:14.640 [http-nio-8091-exec-2] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-09-05.16:38:14.640 [http-nio-8091-exec-2] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-09-05.16:38:14.641 [http-nio-8091-exec-2] INFO  DispatcherServlet      - Completed initialization in 0 ms
+25-09-05.16:38:14.803 [http-nio-8091-exec-2] INFO  AiAgentControlle       - AutoAgent流式执行请求开始，请求信息：{"aiAgentId":"3001","maxStep":1,"message":"大象放冰箱要几步","sessionId":"1"}
+25-09-05.16:38:14.806 [pool-2-thread-1 ] INFO  RootNode               - === 动态多轮执行测试开始 ====
+25-09-05.16:38:14.806 [pool-2-thread-1 ] INFO  RootNode               - 用户输入: 大象放冰箱要几步
+25-09-05.16:38:14.806 [pool-2-thread-1 ] INFO  RootNode               - 最大执行步数: 1
+25-09-05.16:38:14.806 [pool-2-thread-1 ] INFO  RootNode               - 会话ID: 1
+25-09-05.16:38:14.818 [pool-2-thread-1 ] INFO  HikariDataSource       - MainHikariPool - Starting...
+25-09-05.16:38:15.237 [pool-2-thread-1 ] INFO  HikariPool             - MainHikariPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b164459
+25-09-05.16:38:15.239 [pool-2-thread-1 ] INFO  HikariDataSource       - MainHikariPool - Start completed.
+25-09-05.16:38:15.383 [pool-2-thread-1 ] INFO  Step1AnalyzerNode      - 
+🎯 === 执行第 1 步 ===
+25-09-05.16:38:15.384 [pool-2-thread-1 ] INFO  Step1AnalyzerNode      - 
+📊 阶段1: 任务状态分析
+25-09-05.16:38:15.384 [pool-2-thread-1 ] ERROR AiAgentControlle       - AutoAgent执行异常：Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+java.lang.NullPointerException: Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:32)
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:19)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.route(AbsractMultiTreadStrategyRouter.java:14)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:46)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:21)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.domain.agent.service.execute.auto.AutoAgentExecuteStrategy.execute(AutoAgentExecuteStrategy.java:40)
+	at com.zj.trigger.http.AiAgentControlle.lambda$autoAgent$0(AiAgentControlle.java:63)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+25-09-05.16:40:24.270 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
+25-09-05.16:40:24.466 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:40:24.479 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown initiated...
+25-09-05.16:40:24.483 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown completed.
+25-09-05.16:40:27.565 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+25-09-05.16:40:27.596 [main            ] INFO  Application            - Starting Application using Java 17.0.15 with PID 21012 (D:\JavaProgram\ai-agent-study\ai-agent-study-app\target\classes started by JieZhou in D:\JavaProgram\ai-agent-study)
+25-09-05.16:40:27.597 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-09-05.16:40:28.595 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
+25-09-05.16:40:28.603 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
+25-09-05.16:40:28.604 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-09-05.16:40:28.604 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
+25-09-05.16:40:28.651 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-09-05.16:40:28.651 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1021 ms
+25-09-05.16:40:28.995 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
+25-09-05.16:40:28.998 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
+25-09-05.16:40:28.998 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
+25-09-05.16:40:29.727 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
+25-09-05.16:40:29.736 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
+25-09-05.16:40:29.742 [main            ] INFO  Application            - Started Application in 2.51 seconds (process running for 2.945)
+25-09-05.16:42:40.283 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
+25-09-05.16:42:40.474 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:42:43.542 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+25-09-05.16:42:43.578 [main            ] INFO  Application            - Starting Application using Java 17.0.15 with PID 15792 (D:\JavaProgram\ai-agent-study\ai-agent-study-app\target\classes started by JieZhou in D:\JavaProgram\ai-agent-study)
+25-09-05.16:42:43.579 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-09-05.16:42:44.740 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
+25-09-05.16:42:44.747 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
+25-09-05.16:42:44.748 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-09-05.16:42:44.749 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
+25-09-05.16:42:44.796 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-09-05.16:42:44.796 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1187 ms
+25-09-05.16:42:45.154 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
+25-09-05.16:42:45.157 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
+25-09-05.16:42:45.157 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
+25-09-05.16:42:45.879 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
+25-09-05.16:42:45.890 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
+25-09-05.16:42:45.896 [main            ] INFO  Application            - Started Application in 2.744 seconds (process running for 3.195)
+25-09-05.16:43:48.034 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
+25-09-05.16:43:48.225 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:43:50.037 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+25-09-05.16:43:50.068 [main            ] INFO  Application            - Starting Application using Java 17.0.15 with PID 6928 (D:\JavaProgram\ai-agent-study\ai-agent-study-app\target\classes started by JieZhou in D:\JavaProgram\ai-agent-study)
+25-09-05.16:43:50.069 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-09-05.16:43:51.008 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
+25-09-05.16:43:51.016 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
+25-09-05.16:43:51.018 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-09-05.16:43:51.018 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
+25-09-05.16:43:51.066 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-09-05.16:43:51.066 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 972 ms
+25-09-05.16:43:51.414 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
+25-09-05.16:43:51.416 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
+25-09-05.16:43:51.417 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
+25-09-05.16:43:52.170 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
+25-09-05.16:43:52.180 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
+25-09-05.16:43:52.186 [main            ] INFO  Application            - Started Application in 2.517 seconds (process running for 2.998)
+25-09-05.16:43:52.187 [main            ] INFO  AiAgentAutoConfiguration - AI Agent 自动装配开始，配置: AiAgentAutoConfigProperties(enabled=true, clientIds=[3001])
+25-09-05.16:43:52.188 [main            ] INFO  AiAgentAutoConfiguration - 开始自动装配AI客户端，客户端ID列表: [3001]
+25-09-05.16:43:52.189 [main            ] INFO  RootNode               - 开始加载数据 commandTypeclient
+25-09-05.16:43:52.189 [main            ] ERROR RootNode               - 未找到对应的策略
+25-09-05.16:43:52.189 [main            ] ERROR AiAgentAutoConfiguration - AI Agent 自动装配失败
+java.lang.NullPointerException: Cannot invoke "com.zj.domain.agent.service.armory.strategy.ILoadDataStrategy.loadData(com.zj.domain.agent.model.entity.ArmoryCommandEntity, com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory$DynamicContext)" because "loadDataStrategy" is null
+	at com.zj.domain.agent.service.armory.node.RootNode.multiThread(RootNode.java:41)
+	at com.zj.domain.agent.service.armory.node.RootNode.multiThread(RootNode.java:14)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:21)
+	at com.zj.config.AiAgentAutoConfiguration.onApplicationEvent(AiAgentAutoConfiguration.java:70)
+	at com.zj.config.AiAgentAutoConfiguration.onApplicationEvent(AiAgentAutoConfiguration.java:23)
+	at com.zj.config.AiAgentAutoConfiguration$$SpringCGLIB$$0.onApplicationEvent(<generated>)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:454)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:387)
+	at org.springframework.boot.context.event.EventPublishingRunListener.ready(EventPublishingRunListener.java:109)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$ready$6(SpringApplicationRunListeners.java:80)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.ready(SpringApplicationRunListeners.java:80)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:332)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.zj.Application.main(Application.java:12)
+25-09-05.16:44:50.675 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
+25-09-05.16:44:50.874 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:44:54.130 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+25-09-05.16:44:54.163 [main            ] INFO  Application            - Starting Application using Java 17.0.15 with PID 28336 (D:\JavaProgram\ai-agent-study\ai-agent-study-app\target\classes started by JieZhou in D:\JavaProgram\ai-agent-study)
+25-09-05.16:44:54.163 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-09-05.16:44:55.154 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
+25-09-05.16:44:55.162 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
+25-09-05.16:44:55.163 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-09-05.16:44:55.164 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
+25-09-05.16:44:55.213 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-09-05.16:44:55.214 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1022 ms
+25-09-05.16:44:55.577 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
+25-09-05.16:44:55.580 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
+25-09-05.16:44:55.580 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
+25-09-05.16:44:56.300 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
+25-09-05.16:44:56.311 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
+25-09-05.16:44:56.317 [main            ] INFO  Application            - Started Application in 2.518 seconds (process running for 2.965)
+25-09-05.16:44:56.319 [main            ] INFO  AiAgentAutoConfiguration - AI Agent 自动装配开始，配置: AiAgentAutoConfigProperties(enabled=true, clientIds=[3001])
+25-09-05.16:44:56.319 [main            ] INFO  AiAgentAutoConfiguration - 开始自动装配AI客户端，客户端ID列表: [3001]
+25-09-05.16:44:56.320 [main            ] INFO  RootNode               - 开始加载数据 commandTypeaiClientLoadDataStrategy
+25-09-05.16:44:56.320 [main            ] INFO  ClientLoadDataStrategy - 开始异步加载数据
+25-09-05.16:44:56.333 [pool-2-thread-4 ] INFO  HikariDataSource       - MainHikariPool - Starting...
+25-09-05.16:44:56.720 [pool-2-thread-4 ] INFO  HikariPool             - MainHikariPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@7db36a1d
+25-09-05.16:44:56.721 [pool-2-thread-4 ] INFO  HikariDataSource       - MainHikariPool - Start completed.
+25-09-05.16:44:57.066 [main            ] INFO  ClientLoadDataStrategy - 结束异步加载数据
+25-09-05.16:44:57.067 [main            ] INFO  ApiNode                - Ai Agent 构建节点，客户端,ApiNode
+25-09-05.16:44:57.068 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_api_1002
+25-09-05.16:44:57.068 [main            ] INFO  ModelNode              - Ai Agent 构建节点，客户端,ModelNode
+25-09-05.16:44:57.068 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_model_2005
+25-09-05.16:44:57.068 [main            ] INFO  McpNode                - Ai Agent 构建节点，客户端,McpNode
+25-09-05.16:44:57.133 [main            ] INFO  AdvisorNode            - Ai Agent 构建节点，Advisor 顾问角色{"commandIdList":["3001"],"commandType":"aiClientLoadDataStrategy"}
+25-09-05.16:44:57.134 [main            ] WARN  AdvisorNode            - 没有需要被初始化的 ai client advisor
+25-09-05.16:44:57.134 [main            ] INFO  ClientNode             - Ai Agent 构建节点，客户端ClientNode
+25-09-05.16:44:57.134 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_3001
+25-09-05.16:44:57.135 [main            ] INFO  AiAgentAutoConfiguration - AI Agent 自动装配完成，结果: AgentArmoryVO(dynamicContext=DefaultAgentArmoryFactory.DynamicContext(dataObjects={ai_client_api_data_list=[AiClientApiVO(apiId=1002, baseUrl=https://api.deepseek.com, apiKey=sk-913c967554c44c3ea3182be9cffb74b8, completionsPath=1, embeddingsPath=1)], ai_client_advisor_data_list=[], ai_client_model_data_list=[AiClientModelVO(modelId=2005, apiId=1002, modelName=deepseek-chat, modelType=openai, toolMcpIds=[])], ai_client_tool_mcp_data_list=[], ai_client_data_list=[AiClientVO(clientId=3001, clientName=test, description=尝试了解数据库, modelId=2005, promptIdList=[6001], mcpIdList=[], advisorIdList=[])], ai_client_system_prompt_data_list={6001=AiClientSystemPromptVO(promptId=6001, promptName=提示词优化, promptContent=你是一个专业的AI提示词优化专家。请帮我优化以下prompt，并按照以下格式返回：
+
+# Role: [角色名称]
+
+## Profile
+
+- language: [语言]
+- description: [详细的角色描述]
+- background: [角色背景]
+- personality: [性格特征]
+- expertise: [专业领域]
+- target_audience: [目标用户群]
+
+## Skills
+
+1. [核心技能类别]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+2. [辅助技能类别]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+
+## Rules
+
+1. [基本原则]：
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+2. [行为准则]：
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+3. [限制条件]：
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+
+## Workflows
+
+- 目标: [明确目标]
+- 步骤 1: [详细说明]
+- 步骤 2: [详细说明]
+- 步骤 3: [详细说明]
+- 预期结果: [说明]
+
+## Initialization
+
+作为[角色名称]，你必须遵守上述Rules，按照Workflows执行任务。
+请基于以上模板，优化并扩展以下prompt，确保内容专业、完整且结构清晰，注意不要携带任何引导词或解释，不要使用代码块包围。, description=提示词优化，拆分执行动作)}}))
+25-09-05.16:45:21.940 [http-nio-8091-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-09-05.16:45:21.940 [http-nio-8091-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-09-05.16:45:21.941 [http-nio-8091-exec-1] INFO  DispatcherServlet      - Completed initialization in 0 ms
+25-09-05.16:45:22.004 [http-nio-8091-exec-1] INFO  AiAgentControlle       - AutoAgent流式执行请求开始，请求信息：{"aiAgentId":"3001","maxStep":1,"message":"大象放冰箱要几步","sessionId":"1"}
+25-09-05.16:45:22.007 [pool-2-thread-7 ] INFO  RootNode               - === 动态多轮执行测试开始 ====
+25-09-05.16:45:22.007 [pool-2-thread-7 ] INFO  RootNode               - 用户输入: 大象放冰箱要几步
+25-09-05.16:45:22.007 [pool-2-thread-7 ] INFO  RootNode               - 最大执行步数: 1
+25-09-05.16:45:22.007 [pool-2-thread-7 ] INFO  RootNode               - 会话ID: 1
+25-09-05.16:45:22.422 [pool-2-thread-7 ] INFO  Step1AnalyzerNode      - 
+🎯 === 执行第 1 步 ===
+25-09-05.16:45:22.423 [pool-2-thread-7 ] INFO  Step1AnalyzerNode      - 
+📊 阶段1: 任务状态分析
+25-09-05.16:45:22.423 [pool-2-thread-7 ] ERROR AiAgentControlle       - AutoAgent执行异常：Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+java.lang.NullPointerException: Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:32)
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:19)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.route(AbsractMultiTreadStrategyRouter.java:14)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:46)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:21)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.domain.agent.service.execute.auto.AutoAgentExecuteStrategy.execute(AutoAgentExecuteStrategy.java:40)
+	at com.zj.trigger.http.AiAgentControlle.lambda$autoAgent$0(AiAgentControlle.java:63)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+25-09-05.16:47:24.394 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
+25-09-05.16:47:24.586 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:47:24.598 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown initiated...
+25-09-05.16:47:24.606 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown completed.
+25-09-05.16:47:27.387 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+25-09-05.16:47:27.427 [main            ] INFO  Application            - Starting Application using Java 17.0.15 with PID 23656 (D:\JavaProgram\ai-agent-study\ai-agent-study-app\target\classes started by JieZhou in D:\JavaProgram\ai-agent-study)
+25-09-05.16:47:27.428 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-09-05.16:47:28.524 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
+25-09-05.16:47:28.533 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
+25-09-05.16:47:28.534 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-09-05.16:47:28.534 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
+25-09-05.16:47:28.587 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-09-05.16:47:28.587 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1121 ms
+25-09-05.16:47:29.000 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
+25-09-05.16:47:29.002 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
+25-09-05.16:47:29.002 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
+25-09-05.16:47:29.820 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
+25-09-05.16:47:29.834 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
+25-09-05.16:47:29.841 [main            ] INFO  Application            - Started Application in 2.861 seconds (process running for 3.733)
+25-09-05.16:47:29.843 [main            ] INFO  AiAgentAutoConfiguration - AI Agent 自动装配开始，配置: AiAgentAutoConfigProperties(enabled=true, clientIds=[3001])
+25-09-05.16:47:29.843 [main            ] INFO  AiAgentAutoConfiguration - 开始自动装配AI客户端，客户端ID列表: [3001]
+25-09-05.16:47:29.844 [main            ] INFO  RootNode               - 开始加载数据 commandTypeaiClientLoadDataStrategy
+25-09-05.16:47:29.844 [main            ] INFO  ClientLoadDataStrategy - 开始异步加载数据
+25-09-05.16:47:29.861 [pool-2-thread-3 ] INFO  HikariDataSource       - MainHikariPool - Starting...
+25-09-05.16:47:30.322 [pool-2-thread-3 ] INFO  HikariPool             - MainHikariPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@5ba632d2
+25-09-05.16:47:30.324 [pool-2-thread-3 ] INFO  HikariDataSource       - MainHikariPool - Start completed.
+25-09-05.16:47:30.641 [main            ] INFO  ClientLoadDataStrategy - 结束异步加载数据
+25-09-05.16:47:30.641 [main            ] INFO  ApiNode                - Ai Agent 构建节点，客户端,ApiNode
+25-09-05.16:47:30.642 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_api_1002
+25-09-05.16:47:30.642 [main            ] INFO  ModelNode              - Ai Agent 构建节点，客户端,ModelNode
+25-09-05.16:47:30.643 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_model_2005
+25-09-05.16:47:30.643 [main            ] INFO  McpNode                - Ai Agent 构建节点，客户端,McpNode
+25-09-05.16:47:30.722 [main            ] INFO  AdvisorNode            - Ai Agent 构建节点，Advisor 顾问角色{"commandIdList":["3001"],"commandType":"aiClientLoadDataStrategy"}
+25-09-05.16:47:30.722 [main            ] WARN  AdvisorNode            - 没有需要被初始化的 ai client advisor
+25-09-05.16:47:30.722 [main            ] INFO  ClientNode             - Ai Agent 构建节点，客户端ClientNode
+25-09-05.16:47:30.723 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_3001
+25-09-05.16:47:30.724 [main            ] INFO  AiAgentAutoConfiguration - AI Agent 自动装配完成，结果: AgentArmoryVO(dynamicContext=DefaultAgentArmoryFactory.DynamicContext(dataObjects={ai_client_api_data_list=[AiClientApiVO(apiId=1002, baseUrl=https://api.deepseek.com, apiKey=sk-913c967554c44c3ea3182be9cffb74b8, completionsPath=1, embeddingsPath=1)], ai_client_advisor_data_list=[], ai_client_model_data_list=[AiClientModelVO(modelId=2005, apiId=1002, modelName=deepseek-chat, modelType=openai, toolMcpIds=[])], ai_client_tool_mcp_data_list=[], ai_client_data_list=[AiClientVO(clientId=3001, clientName=test, description=尝试了解数据库, modelId=2005, promptIdList=[6001], mcpIdList=[], advisorIdList=[])], ai_client_system_prompt_data_list={6001=AiClientSystemPromptVO(promptId=6001, promptName=提示词优化, promptContent=你是一个专业的AI提示词优化专家。请帮我优化以下prompt，并按照以下格式返回：
+
+# Role: [角色名称]
+
+## Profile
+
+- language: [语言]
+- description: [详细的角色描述]
+- background: [角色背景]
+- personality: [性格特征]
+- expertise: [专业领域]
+- target_audience: [目标用户群]
+
+## Skills
+
+1. [核心技能类别]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+2. [辅助技能类别]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+
+## Rules
+
+1. [基本原则]：
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+2. [行为准则]：
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+3. [限制条件]：
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+
+## Workflows
+
+- 目标: [明确目标]
+- 步骤 1: [详细说明]
+- 步骤 2: [详细说明]
+- 步骤 3: [详细说明]
+- 预期结果: [说明]
+
+## Initialization
+
+作为[角色名称]，你必须遵守上述Rules，按照Workflows执行任务。
+请基于以上模板，优化并扩展以下prompt，确保内容专业、完整且结构清晰，注意不要携带任何引导词或解释，不要使用代码块包围。, description=提示词优化，拆分执行动作)}}))
+25-09-05.16:47:35.135 [http-nio-8091-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-09-05.16:47:35.135 [http-nio-8091-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-09-05.16:47:35.136 [http-nio-8091-exec-1] INFO  DispatcherServlet      - Completed initialization in 1 ms
+25-09-05.16:47:35.222 [http-nio-8091-exec-1] INFO  AiAgentControlle       - AutoAgent流式执行请求开始，请求信息：{"aiAgentId":"3001","maxStep":1,"message":"大象放冰箱要几步","sessionId":"1"}
+25-09-05.16:47:35.224 [pool-2-thread-7 ] INFO  RootNode               - === 动态多轮执行测试开始 ====
+25-09-05.16:47:35.225 [pool-2-thread-7 ] INFO  RootNode               - 用户输入: 大象放冰箱要几步
+25-09-05.16:47:35.225 [pool-2-thread-7 ] INFO  RootNode               - 最大执行步数: 1
+25-09-05.16:47:35.225 [pool-2-thread-7 ] INFO  RootNode               - 会话ID: 1
+25-09-05.16:48:27.881 [pool-2-thread-7 ] INFO  Step1AnalyzerNode      - 
+🎯 === 执行第 1 步 ===
+25-09-05.16:48:27.883 [pool-2-thread-7 ] INFO  Step1AnalyzerNode      - 
+📊 阶段1: 任务状态分析
+25-09-05.16:48:27.884 [pool-2-thread-7 ] ERROR AiAgentControlle       - AutoAgent执行异常：Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+java.lang.NullPointerException: Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:32)
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:19)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.route(AbsractMultiTreadStrategyRouter.java:14)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:46)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:21)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.domain.agent.service.execute.auto.AutoAgentExecuteStrategy.execute(AutoAgentExecuteStrategy.java:40)
+	at com.zj.trigger.http.AiAgentControlle.lambda$autoAgent$0(AiAgentControlle.java:63)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+25-09-05.16:49:00.331 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
+25-09-05.16:49:00.534 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:49:00.547 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown initiated...
+25-09-05.16:49:00.552 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown completed.
+25-09-05.16:49:02.838 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+25-09-05.16:49:02.882 [main            ] INFO  Application            - Starting Application using Java 17.0.15 with PID 22844 (D:\JavaProgram\ai-agent-study\ai-agent-study-app\target\classes started by JieZhou in D:\JavaProgram\ai-agent-study)
+25-09-05.16:49:02.883 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-09-05.16:49:03.982 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
+25-09-05.16:49:03.991 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
+25-09-05.16:49:03.992 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-09-05.16:49:03.992 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
+25-09-05.16:49:04.050 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-09-05.16:49:04.050 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1128 ms
+25-09-05.16:49:04.493 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
+25-09-05.16:49:04.495 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
+25-09-05.16:49:04.496 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
+25-09-05.16:49:05.311 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
+25-09-05.16:49:05.324 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
+25-09-05.16:49:05.331 [main            ] INFO  Application            - Started Application in 2.917 seconds (process running for 3.931)
+25-09-05.16:49:05.333 [main            ] INFO  AiAgentAutoConfiguration - AI Agent 自动装配开始，配置: AiAgentAutoConfigProperties(enabled=true, clientIds=[3001])
+25-09-05.16:49:05.333 [main            ] INFO  AiAgentAutoConfiguration - 开始自动装配AI客户端，客户端ID列表: [3001]
+25-09-05.16:49:05.334 [main            ] INFO  RootNode               - 开始加载数据 commandTypeaiClientLoadDataStrategy
+25-09-05.16:49:05.334 [main            ] INFO  ClientLoadDataStrategy - 开始异步加载数据
+25-09-05.16:49:05.350 [pool-2-thread-3 ] INFO  HikariDataSource       - MainHikariPool - Starting...
+25-09-05.16:49:05.698 [pool-2-thread-3 ] INFO  HikariPool             - MainHikariPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@21cf1b22
+25-09-05.16:49:05.700 [pool-2-thread-3 ] INFO  HikariDataSource       - MainHikariPool - Start completed.
+25-09-05.16:49:06.038 [main            ] INFO  ClientLoadDataStrategy - 结束异步加载数据
+25-09-05.16:49:06.038 [main            ] INFO  ApiNode                - Ai Agent 构建节点，客户端,ApiNode
+25-09-05.16:49:06.039 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_api_1002
+25-09-05.16:49:06.039 [main            ] INFO  ModelNode              - Ai Agent 构建节点，客户端,ModelNode
+25-09-05.16:49:06.039 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_model_2005
+25-09-05.16:49:06.039 [main            ] INFO  McpNode                - Ai Agent 构建节点，客户端,McpNode
+25-09-05.16:49:06.119 [main            ] INFO  AdvisorNode            - Ai Agent 构建节点，Advisor 顾问角色{"commandIdList":["3001"],"commandType":"aiClientLoadDataStrategy"}
+25-09-05.16:49:06.119 [main            ] WARN  AdvisorNode            - 没有需要被初始化的 ai client advisor
+25-09-05.16:49:06.119 [main            ] INFO  ClientNode             - Ai Agent 构建节点，客户端ClientNode
+25-09-05.16:49:06.120 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_3001
+25-09-05.16:49:06.121 [main            ] INFO  AiAgentAutoConfiguration - AI Agent 自动装配完成，结果: AgentArmoryVO(dynamicContext=DefaultAgentArmoryFactory.DynamicContext(dataObjects={ai_client_api_data_list=[AiClientApiVO(apiId=1002, baseUrl=https://api.deepseek.com, apiKey=sk-913c967554c44c3ea3182be9cffb74b8, completionsPath=1, embeddingsPath=1)], ai_client_advisor_data_list=[], ai_client_model_data_list=[AiClientModelVO(modelId=2005, apiId=1002, modelName=deepseek-chat, modelType=openai, toolMcpIds=[])], ai_client_tool_mcp_data_list=[], ai_client_data_list=[AiClientVO(clientId=3001, clientName=test, description=尝试了解数据库, modelId=2005, promptIdList=[6001], mcpIdList=[], advisorIdList=[])], ai_client_system_prompt_data_list={6001=AiClientSystemPromptVO(promptId=6001, promptName=提示词优化, promptContent=你是一个专业的AI提示词优化专家。请帮我优化以下prompt，并按照以下格式返回：
+
+# Role: [角色名称]
+
+## Profile
+
+- language: [语言]
+- description: [详细的角色描述]
+- background: [角色背景]
+- personality: [性格特征]
+- expertise: [专业领域]
+- target_audience: [目标用户群]
+
+## Skills
+
+1. [核心技能类别]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+2. [辅助技能类别]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+
+## Rules
+
+1. [基本原则]：
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+2. [行为准则]：
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+3. [限制条件]：
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+
+## Workflows
+
+- 目标: [明确目标]
+- 步骤 1: [详细说明]
+- 步骤 2: [详细说明]
+- 步骤 3: [详细说明]
+- 预期结果: [说明]
+
+## Initialization
+
+作为[角色名称]，你必须遵守上述Rules，按照Workflows执行任务。
+请基于以上模板，优化并扩展以下prompt，确保内容专业、完整且结构清晰，注意不要携带任何引导词或解释，不要使用代码块包围。, description=提示词优化，拆分执行动作)}}))
+25-09-05.16:49:08.332 [http-nio-8091-exec-2] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-09-05.16:49:08.332 [http-nio-8091-exec-2] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-09-05.16:49:08.333 [http-nio-8091-exec-2] INFO  DispatcherServlet      - Completed initialization in 1 ms
+25-09-05.16:49:08.420 [http-nio-8091-exec-2] INFO  AiAgentControlle       - AutoAgent流式执行请求开始，请求信息：{"aiAgentId":"3001","maxStep":1,"message":"大象放冰箱要几步","sessionId":"1"}
+25-09-05.16:49:08.424 [pool-2-thread-7 ] INFO  RootNode               - === 动态多轮执行测试开始 ====
+25-09-05.16:49:08.424 [pool-2-thread-7 ] INFO  RootNode               - 用户输入: 大象放冰箱要几步
+25-09-05.16:49:08.424 [pool-2-thread-7 ] INFO  RootNode               - 最大执行步数: 1
+25-09-05.16:49:08.424 [pool-2-thread-7 ] INFO  RootNode               - 会话ID: 1
+25-09-05.16:49:55.710 [MainHikariPool housekeeper] WARN  HikariPool             - MainHikariPool - Thread starvation or clock leap detected (housekeeper delta=49s908ms636µs700ns).
+25-09-05.16:49:55.712 [pool-2-thread-7 ] INFO  Step1AnalyzerNode      - 
+🎯 === 执行第 1 步 ===
+25-09-05.16:49:55.715 [pool-2-thread-7 ] INFO  Step1AnalyzerNode      - 
+📊 阶段1: 任务状态分析
+25-09-05.16:49:55.716 [pool-2-thread-7 ] ERROR AiAgentControlle       - AutoAgent执行异常：Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+java.lang.NullPointerException: Cannot invoke "com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO.getStepPrompt()" because "aiAgentClientFlowConfigVO" is null
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:32)
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:19)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.route(AbsractMultiTreadStrategyRouter.java:14)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:46)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:21)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.domain.agent.service.execute.auto.AutoAgentExecuteStrategy.execute(AutoAgentExecuteStrategy.java:40)
+	at com.zj.trigger.http.AiAgentControlle.lambda$autoAgent$0(AiAgentControlle.java:63)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+25-09-05.16:50:01.237 [http-nio-8091-exec-4] INFO  AiAgentControlle       - AutoAgent流式执行请求开始，请求信息：{"aiAgentId":"3","maxStep":1,"message":"大象放冰箱要几步","sessionId":"1"}
+25-09-05.16:50:01.237 [pool-2-thread-8 ] INFO  RootNode               - === 动态多轮执行测试开始 ====
+25-09-05.16:50:01.237 [pool-2-thread-8 ] INFO  RootNode               - 用户输入: 大象放冰箱要几步
+25-09-05.16:50:01.237 [pool-2-thread-8 ] INFO  RootNode               - 最大执行步数: 1
+25-09-05.16:50:01.237 [pool-2-thread-8 ] INFO  RootNode               - 会话ID: 1
+25-09-05.16:50:17.358 [pool-2-thread-8 ] INFO  Step1AnalyzerNode      - 
+🎯 === 执行第 1 步 ===
+25-09-05.16:50:17.359 [pool-2-thread-8 ] INFO  Step1AnalyzerNode      - 
+📊 阶段1: 任务状态分析
+25-09-05.16:50:17.359 [pool-2-thread-8 ] ERROR AiAgentControlle       - AutoAgent执行异常：Cannot invoke "String.length()" because "s" is null
+java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
+	at java.base/java.util.Formatter.parse(Formatter.java:2717)
+	at java.base/java.util.Formatter.format(Formatter.java:2671)
+	at java.base/java.util.Formatter.format(Formatter.java:2625)
+	at java.base/java.lang.String.format(String.java:4145)
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:32)
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:19)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.route(AbsractMultiTreadStrategyRouter.java:14)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:46)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:21)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.domain.agent.service.execute.auto.AutoAgentExecuteStrategy.execute(AutoAgentExecuteStrategy.java:40)
+	at com.zj.trigger.http.AiAgentControlle.lambda$autoAgent$0(AiAgentControlle.java:63)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+25-09-05.16:51:59.025 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
+25-09-05.16:51:59.222 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:51:59.238 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown initiated...
+25-09-05.16:51:59.242 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown completed.
+25-09-05.16:52:01.383 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+25-09-05.16:52:01.418 [main            ] INFO  Application            - Starting Application using Java 17.0.15 with PID 29208 (D:\JavaProgram\ai-agent-study\ai-agent-study-app\target\classes started by JieZhou in D:\JavaProgram\ai-agent-study)
+25-09-05.16:52:01.418 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-09-05.16:52:02.510 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8091 (http)
+25-09-05.16:52:02.519 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8091"]
+25-09-05.16:52:02.521 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-09-05.16:52:02.521 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.36]
+25-09-05.16:52:02.576 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-09-05.16:52:02.576 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1125 ms
+25-09-05.16:52:02.992 [main            ] INFO  PgVectorStore          - Using the vector table name: vector_store. Is empty: false
+25-09-05.16:52:02.994 [main            ] INFO  PgVectorStore          - Initializing PGVectorStore schema for table: vector_store in schema: public
+25-09-05.16:52:02.994 [main            ] INFO  PgVectorStore          - vectorTableValidationsEnabled false
+25-09-05.16:52:03.781 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8091"]
+25-09-05.16:52:03.794 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8091 (http) with context path '/'
+25-09-05.16:52:03.801 [main            ] INFO  Application            - Started Application in 2.83 seconds (process running for 3.529)
+25-09-05.16:52:03.803 [main            ] INFO  AiAgentAutoConfiguration - AI Agent 自动装配开始，配置: AiAgentAutoConfigProperties(enabled=true, clientIds=[3001])
+25-09-05.16:52:03.803 [main            ] INFO  AiAgentAutoConfiguration - 开始自动装配AI客户端，客户端ID列表: [3001]
+25-09-05.16:52:03.805 [main            ] INFO  RootNode               - 开始加载数据 commandTypeaiClientLoadDataStrategy
+25-09-05.16:52:03.805 [main            ] INFO  ClientLoadDataStrategy - 开始异步加载数据
+25-09-05.16:52:03.833 [pool-2-thread-2 ] INFO  HikariDataSource       - MainHikariPool - Starting...
+25-09-05.16:52:04.332 [pool-2-thread-2 ] INFO  HikariPool             - MainHikariPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@4edffbf8
+25-09-05.16:52:04.334 [pool-2-thread-2 ] INFO  HikariDataSource       - MainHikariPool - Start completed.
+25-09-05.16:52:04.543 [main            ] INFO  ClientLoadDataStrategy - 结束异步加载数据
+25-09-05.16:52:04.544 [main            ] INFO  ApiNode                - Ai Agent 构建节点，客户端,ApiNode
+25-09-05.16:52:04.545 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_api_1002
+25-09-05.16:52:04.545 [main            ] INFO  ModelNode              - Ai Agent 构建节点，客户端,ModelNode
+25-09-05.16:52:04.546 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_model_2005
+25-09-05.16:52:04.546 [main            ] INFO  McpNode                - Ai Agent 构建节点，客户端,McpNode
+25-09-05.16:52:04.637 [main            ] INFO  AdvisorNode            - Ai Agent 构建节点，Advisor 顾问角色{"commandIdList":["3001"],"commandType":"aiClientLoadDataStrategy"}
+25-09-05.16:52:04.637 [main            ] WARN  AdvisorNode            - 没有需要被初始化的 ai client advisor
+25-09-05.16:52:04.637 [main            ] INFO  ClientNode             - Ai Agent 构建节点，客户端ClientNode
+25-09-05.16:52:04.638 [main            ] INFO  SpringContextUtil      - 成功注册Bean: ai_client_3001
+25-09-05.16:52:04.639 [main            ] INFO  AiAgentAutoConfiguration - AI Agent 自动装配完成，结果: AgentArmoryVO(dynamicContext=DefaultAgentArmoryFactory.DynamicContext(dataObjects={ai_client_api_data_list=[AiClientApiVO(apiId=1002, baseUrl=https://api.deepseek.com, apiKey=sk-913c967554c44c3ea3182be9cffb74b8, completionsPath=1, embeddingsPath=1)], ai_client_advisor_data_list=[], ai_client_model_data_list=[AiClientModelVO(modelId=2005, apiId=1002, modelName=deepseek-chat, modelType=openai, toolMcpIds=[])], ai_client_tool_mcp_data_list=[], ai_client_data_list=[AiClientVO(clientId=3001, clientName=test, description=尝试了解数据库, modelId=2005, promptIdList=[6001], mcpIdList=[], advisorIdList=[])], ai_client_system_prompt_data_list={6001=AiClientSystemPromptVO(promptId=6001, promptName=提示词优化, promptContent=你是一个专业的AI提示词优化专家。请帮我优化以下prompt，并按照以下格式返回：
+
+# Role: [角色名称]
+
+## Profile
+
+- language: [语言]
+- description: [详细的角色描述]
+- background: [角色背景]
+- personality: [性格特征]
+- expertise: [专业领域]
+- target_audience: [目标用户群]
+
+## Skills
+
+1. [核心技能类别]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+2. [辅助技能类别]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+   - [具体技能]: [简要说明]
+
+## Rules
+
+1. [基本原则]：
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+2. [行为准则]：
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+   - [具体规则]: [详细说明]
+3. [限制条件]：
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+   - [具体限制]: [详细说明]
+
+## Workflows
+
+- 目标: [明确目标]
+- 步骤 1: [详细说明]
+- 步骤 2: [详细说明]
+- 步骤 3: [详细说明]
+- 预期结果: [说明]
+
+## Initialization
+
+作为[角色名称]，你必须遵守上述Rules，按照Workflows执行任务。
+请基于以上模板，优化并扩展以下prompt，确保内容专业、完整且结构清晰，注意不要携带任何引导词或解释，不要使用代码块包围。, description=提示词优化，拆分执行动作)}}))
+25-09-05.16:52:07.358 [http-nio-8091-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-09-05.16:52:07.358 [http-nio-8091-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-09-05.16:52:07.359 [http-nio-8091-exec-1] INFO  DispatcherServlet      - Completed initialization in 1 ms
+25-09-05.16:52:07.437 [http-nio-8091-exec-1] INFO  AiAgentControlle       - AutoAgent流式执行请求开始，请求信息：{"aiAgentId":"3","maxStep":1,"message":"大象放冰箱要几步","sessionId":"1"}
+25-09-05.16:52:07.440 [pool-2-thread-7 ] INFO  RootNode               - === 动态多轮执行测试开始 ====
+25-09-05.16:52:07.440 [pool-2-thread-7 ] INFO  RootNode               - 用户输入: 大象放冰箱要几步
+25-09-05.16:52:07.441 [pool-2-thread-7 ] INFO  RootNode               - 最大执行步数: 1
+25-09-05.16:52:07.441 [pool-2-thread-7 ] INFO  RootNode               - 会话ID: 1
+25-09-05.16:52:12.530 [pool-2-thread-7 ] INFO  Step1AnalyzerNode      - 
+🎯 === 执行第 1 步 ===
+25-09-05.16:52:12.531 [pool-2-thread-7 ] INFO  Step1AnalyzerNode      - 
+📊 阶段1: 任务状态分析
+25-09-05.16:52:27.166 [pool-2-thread-7 ] ERROR AiAgentControlle       - AutoAgent执行异常：Cannot invoke "String.length()" because "s" is null
+java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
+	at java.base/java.util.Formatter.parse(Formatter.java:2717)
+	at java.base/java.util.Formatter.format(Formatter.java:2671)
+	at java.base/java.util.Formatter.format(Formatter.java:2625)
+	at java.base/java.lang.String.format(String.java:4145)
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:32)
+	at com.zj.domain.agent.service.execute.auto.step.Step1AnalyzerNode.doApply(Step1AnalyzerNode.java:19)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.route(AbsractMultiTreadStrategyRouter.java:14)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:46)
+	at com.zj.domain.agent.service.execute.auto.step.RootNode.doApply(RootNode.java:21)
+	at com.zj.types.common.design.tree.AbsractMultiTreadStrategyRouter.apply(AbsractMultiTreadStrategyRouter.java:22)
+	at com.zj.domain.agent.service.execute.auto.AutoAgentExecuteStrategy.execute(AutoAgentExecuteStrategy.java:40)
+	at com.zj.trigger.http.AiAgentControlle.lambda$autoAgent$0(AiAgentControlle.java:63)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+25-09-05.16:52:27.186 [SpringApplicationShutdownHook] INFO  GracefulShutdown       - Commencing graceful shutdown. Waiting for active requests to complete
+25-09-05.16:52:27.381 [tomcat-shutdown ] INFO  GracefulShutdown       - Graceful shutdown complete
+25-09-05.16:52:27.395 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown initiated...
+25-09-05.16:52:27.775 [SpringApplicationShutdownHook] INFO  HikariDataSource       - MainHikariPool - Shutdown completed.

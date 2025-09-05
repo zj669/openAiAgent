@@ -57,6 +57,10 @@ spring:
         model: nomic-embed-text
         options:
           num_ctx: 512
+    agent:
+      auto-config:
+        enabled: true
+        client-ids: 3001
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   config-location:  classpath:/mybatis/config/mybatis-config.xml

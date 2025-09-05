@@ -423,6 +423,7 @@ public class AgentRepository implements IAgentRepository {
 
             for (AiAgentFlowConfig flowConfig : flowConfigs) {
                 AiAgentClientFlowConfigVO configVO = AiAgentClientFlowConfigVO.builder()
+                        .stepPrompt(flowConfig.getStepPrompt())
                         .clientId(flowConfig.getClientId())
                         .clientName(flowConfig.getClientName())
                         .clientType(flowConfig.getClientType())

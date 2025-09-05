@@ -2,12 +2,10 @@ package com.zj.test;
 
 import com.alibaba.fastjson2.JSON;
 import com.zj.domain.agent.model.entity.ArmoryCommandEntity;
-import com.zj.domain.agent.model.entity.ExecuteCommandEntity;
 import com.zj.domain.agent.model.vo.AiClientApiVO;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory;
 import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory.DynamicContext;
 import com.zj.domain.agent.service.armory.model.AgentArmoryVO;
-import com.zj.domain.agent.service.execute.AbstractExecuteStrategy;
 import com.zj.domain.agent.service.execute.auto.factory.DefaultAutoAgentExecuteStrategyFactory;
 import com.zj.domain.agent.service.execute.model.ModelExecuteStrategy;
 import com.zj.infrastructure.dao.IAiClientApiDao;
@@ -23,6 +21,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.reactive.function.client.WebClient;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,16 +67,7 @@ public class ApiTest {
 
     @Test
     public void test4() {
-        StrategyHandler<ExecuteCommandEntity, AbstractExecuteStrategy.DynamicContext, String> executeCommandEntityDynamicContextStringStrategyHandler = defaultAutoAgentExecuteStrategyFactory.armoryStrategyHandler();
-        AbstractExecuteStrategy.DynamicContext dynamicContext = new AbstractExecuteStrategy.DynamicContext();
-        System.out.println(executeCommandEntityDynamicContextStringStrategyHandler.apply(ExecuteCommandEntity.builder()
-                .userMessage("大象装进冰箱要几步")
-                .aiAgentId("3")
-                .maxStep(1)
-                .sessionId("1")
-                .build(), dynamicContext));
 
-        System.out.println((String) dynamicContext.getValue("finalSummary"));
 
     }
 

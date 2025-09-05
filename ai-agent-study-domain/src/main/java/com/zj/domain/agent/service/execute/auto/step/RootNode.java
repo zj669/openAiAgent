@@ -1,21 +1,15 @@
 package com.zj.domain.agent.service.execute.auto.step;
 
 
-import com.zj.domain.agent.adpater.repository.IAgentRepository;
-import com.zj.domain.agent.model.entity.ArmoryCommandEntity;
 import com.zj.domain.agent.model.entity.ExecuteCommandEntity;
 import com.zj.domain.agent.model.vo.AiAgentClientFlowConfigVO;
-import com.zj.domain.agent.service.armory.factory.DefaultAgentArmoryFactory;
-import com.zj.domain.agent.service.armory.model.AgentArmoryVO;
-import com.zj.domain.agent.service.execute.AbstractExecuteStrategy;
-import com.zj.domain.agent.service.execute.auto.AbstractExecuteSupport;
+import com.zj.domain.agent.service.execute.auto.factory.DefaultAutoAgentExecuteStrategyFactory;
+import com.zj.domain.agent.service.execute.auto.factory.DefaultAutoAgentExecuteStrategyFactory.DynamicContext;
 import com.zj.types.common.design.tree.handler.StrategyHandler;
-import com.zj.types.enums.AiAgentEnumVO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,29 +24,15 @@ public class RootNode extends AbstractExecuteSupport {
 
     @Resource
     private Step1AnalyzerNode step1AnalyzerNode;
-    @Resource
-    private DefaultAgentArmoryFactory agentArmoryFactory;
-    @Resource
-    private IAgentRepository agentRepository;
 
     @Override
-    protected String doApply(ExecuteCommandEntity requestParameter, AbstractExecuteStrategy.DynamicContext dynamicContext){
+    protected String doApply(ExecuteCommandEntity requestParameter, DefaultAutoAgentExecuteStrategyFactory.DynamicContext dynamicContext) {
         log.info("=== 动态多轮执行测试开始 ====");
         log.info("用户输入: {}", requestParameter.getUserMessage());
         log.info("最大执行步数: {}", requestParameter.getMaxStep());
         log.info("会话ID: {}", requestParameter.getSessionId());
 
-
-
         Map<String, AiAgentClientFlowConfigVO> aiAgentClientFlowConfigVOMap = repository.queryAiAgentClientFlowConfig(requestParameter.getAiAgentId());
-        log.info("AI代理ID: {}", requestParameter.getAiAgentId());
-        StrategyHandler<ArmoryCommandEntity, DefaultAgentArmoryFactory.DynamicContext, AgentArmoryVO> armoryCommandEntityDynamicContextAgentArmoryVOStrategyHandler = agentArmoryFactory.strategyHandler();
-        List<String> commandIdList  = agentRepository.queryClientIdsByAgentId(requestParameter.getAiAgentId());
-        ArmoryCommandEntity armoryCommandEntity = ArmoryCommandEntity.builder()
-                .commandType(AiAgentEnumVO.AI_CLIENT.getLoadDataStrategy())
-                .commandIdList(commandIdList)
-                .build();
-        armoryCommandEntityDynamicContextAgentArmoryVOStrategyHandler.apply(armoryCommandEntity, new DefaultAgentArmoryFactory.DynamicContext());
 
         // 客户端对话组
         dynamicContext.setAiAgentClientFlowConfigVOMap(aiAgentClientFlowConfigVOMap);
@@ -66,9 +46,9 @@ public class RootNode extends AbstractExecuteSupport {
         return route(requestParameter, dynamicContext);
     }
 
+
     @Override
-    public StrategyHandler<ExecuteCommandEntity, AbstractExecuteStrategy.DynamicContext, String> getStrategyHandler(ExecuteCommandEntity requestParameter, AbstractExecuteStrategy.DynamicContext dynamicContext) {
+    public StrategyHandler<ExecuteCommandEntity, DynamicContext, String> getStrategyHandler(ExecuteCommandEntity requestParams, DynamicContext context) {
         return step1AnalyzerNode;
     }
-
 }
